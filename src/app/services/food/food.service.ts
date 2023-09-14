@@ -1,14 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/Food';
+import { Tag } from 'src/app/shared/models/Tag';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodService {
-
-  constructor() { }
-
-  getAll():Food[] {
+  constructor() {}
+  getAllFoodsBySearchTerm(searchTerm: string): Food[] {
+    return this.getAll().filter((food) =>
+      food.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  getAllTags(): Tag[] {
+    return [
+      { name: 'All', count: 22 },
+      { name: 'Spicy', count: 4 },
+      { name: 'Dessert', count: 2 },
+      { name: 'Dinner', count: 2 },
+      { name: 'Lunch', count: 3 },
+      { name: 'Breakfast', count: 3 },
+      { name: 'Healthy', count: 2 },
+      { name: 'Grilled', count: 1 },
+      { name: 'Snack', count: 1 },
+      { name: 'Soup', count: 1 },
+      { name: 'Special', count: 1 },
+    ];
+  }
+  getAllFoodsByTag(tag: string): Food[] {
+    return tag == 'All'
+      ? this.getAll()
+      : this.getAll().filter((food) => food.tags?.includes(tag));
+  }
+  getAll(): Food[] {
     return [
       {
         id: 1,
@@ -52,7 +76,7 @@ export class FoodService {
         origins: ['Authentic Malang Cuisine'],
         stars: 5,
         imageUrl: 'assets/images/foods/bakso-malang.jpg',
-        tags: ['Breakfast', 'Dinner', 'Soup', 'Slow Food'],
+        tags: ['Breakfast', 'Dinner', 'Soup'],
       },
       {
         id: 5,
@@ -74,7 +98,7 @@ export class FoodService {
         origins: ['Indonesian Cuisine in General'],
         stars: 2,
         imageUrl: 'assets/images/foods/gado-gado.jpg',
-        tags: ['Breakfast', 'Healthy Food'],
+        tags: ['Breakfast', 'Healthy'],
       },
       {
         id: 7,
@@ -107,7 +131,7 @@ export class FoodService {
         origins: ['Indonesian Cuisine in General'],
         stars: 2,
         imageUrl: 'assets/images/foods/ketoprak.png',
-        tags: ['Breakfast', 'Healthy Food'],
+        tags: ['Breakfast', 'Healthy'],
       },
       {
         id: 10,
@@ -118,7 +142,7 @@ export class FoodService {
         origins: ['Indonesian Cuisine in General'],
         stars: 5,
         imageUrl: 'assets/images/foods/lontong-opor.jpg',
-        tags: ['Breakfast', 'Special Dish'],
+        tags: ['Breakfast', 'Special'],
       },
       {
         id: 11,
@@ -140,7 +164,7 @@ export class FoodService {
         origins: ['Indonesian Cuisine in General'],
         stars: 4,
         imageUrl: 'assets/images/foods/nasi-kuning.jpg',
-        tags: ['Breakfast', 'Special Dish'],
+        tags: ['Breakfast', 'Special'],
       },
       {
         id: 13,
@@ -240,8 +264,7 @@ export class FoodService {
         stars: 1,
         imageUrl: 'assets/images/foods/tahu-kalasan.jpg',
         tags: ['Snack'],
-      }
-      
-    ]
+      },
+    ];
   }
 }
