@@ -1,0 +1,33 @@
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+li a {
+    height: 15rem;
+    width: 20rem;
+    border: 2px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: red;
+}
+
+li a img {
+    max-width: 100%;
+    max-height: 60%;
+    object-fit: cover;
+}
+
+li a:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}

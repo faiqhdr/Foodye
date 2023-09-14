@@ -1,5 +1,25 @@
 <ul>
     <li *ngFor="let food of foods">
-        <img src="{{food}}" alt="">
+        <a>
+            <img src="{{food.imageUrl}}" alt="">
+            <div class="content">
+                <div class="name">
+                    {{food.name}}
+                </div>
+                <span class="favorite {{food.favorite?'':'not'}}">
+                    ❤
+                </span>
+                <div class="rating">
+                    <div [ngSwitch]="food.stars">
+                      <span *ngSwitchCase="1" class="star filled">★</span>
+                      <span *ngSwitchCase="2" class="star filled">★★</span>
+                      <span *ngSwitchCase="3" class="star filled">★★★</span>
+                      <span *ngSwitchCase="4" class="star filled">★★★★</span>
+                      <span *ngSwitchCase="5" class="star filled">★★★★★</span>
+                      <span *ngSwitchDefault class="star">☆</span>
+                    </div>
+                </div>
+            </div>
+        </a>
     </li>
 </ul>
