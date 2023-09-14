@@ -10,7 +10,7 @@ ul {
 
 
 li a {
-    height: 20rem;
+    height: 19rem;
     width: 20rem;
     border: 2px solid whitesmoke;
     border-radius: 1rem;
@@ -23,7 +23,7 @@ li a {
 
 li a img {
     max-width: 100%;
-    max-height: 60%;
+    max-height: 50%;
     object-fit: cover;
 }
 
