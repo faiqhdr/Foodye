@@ -1,32 +1,34 @@
 <ul>
     <li *ngFor="let food of foods">
         <a>
-        <img src="{{ food.imageUrl }}" alt="" />
+        <img src="{{ food.imageUrl }}" alt="">
         <div class="content">
             <div class="name">
                 {{ food.name }}
-            </div>
-            <span class="favorite"> {{ food.favorite ? '🧡' : '💔' }} </span>
-            <div class="rating">
-            <div [ngSwitch]="food.stars">
-                <span *ngSwitchCase="1" class="star filled">★</span>
-                <span *ngSwitchCase="2" class="star filled">★★</span>
-                <span *ngSwitchCase="3" class="star filled">★★★</span>
-                <span *ngSwitchCase="4" class="star filled">★★★★</span>
-                <span *ngSwitchCase="5" class="star filled">★★★★★</span>
-                <span *ngSwitchDefault class="star">☆</span>
-            </div>
-            </div>
-            <div class="product-item-footer">
-            <div class="origins">
-                <span *ngFor="let origin of food.origins">
-                {{ origin }}
+                <span class="favorite {{ food.favorite ? '' : 'not' }}"> 
+                    ❤ 
                 </span>
             </div>
-            <div class="cook-time">
-                <span>🕒</span>
-                {{ food.cookTime }}
+            <div class="stars">
+                <div [ngSwitch]="food.stars">
+                    <span *ngSwitchCase="1" class="star filled">★☆☆☆☆</span>
+                    <span *ngSwitchCase="2" class="star filled">★★☆☆☆</span>
+                    <span *ngSwitchCase="3" class="star filled">★★★☆☆</span>
+                    <span *ngSwitchCase="4" class="star filled">★★★★☆</span>
+                    <span *ngSwitchCase="5" class="star filled">★★★★★</span>
+                    <span *ngSwitchDefault class="star">☆☆☆☆☆</span>
+                </div>
             </div>
+            <div class="product-item-footer">
+                <div class="origins">
+                    <span *ngFor="let origin of food.origins">
+                    {{ origin }}
+                    </span>
+                </div>
+                <div class="cook-time">
+                    <span>🕒</span>
+                    {{ food.cookTime }}
+                </div>
             </div>
             <div class="price">
             <span>
