@@ -1,0 +1,44 @@
+<div class="container">
+    <img [src]="food.imageUrl" [alt]="food.name" />
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{ food.name }}
+            </span>
+            <span class="favorite {{ food.favorite ? '' : 'not' }}"> ❤ </span>
+        </div>
+        <div class="stars">
+            <div [ngSwitch]="food.stars">
+                <span *ngSwitchCase="1" class="star filled">★☆☆☆☆</span>
+                <span *ngSwitchCase="2" class="star filled">★★☆☆☆</span>
+                <span *ngSwitchCase="3" class="star filled">★★★☆☆</span>
+                <span *ngSwitchCase="4" class="star filled">★★★★☆</span>
+                <span *ngSwitchCase="5" class="star filled">★★★★★</span>
+                <span *ngSwitchDefault class="star">☆☆☆☆☆</span>
+            </div>
+        </div>
+
+        <div class="origins">
+            <span *ngFor="let origin of food.origins">
+                {{ origin }}
+            </span>
+        </div>
+
+        <div class="tags">
+            <app-tags [foodPageTags]="food.tags"></app-tags>
+        </div>
+
+        <div class="cook-time">
+            <span>
+                Time to cook about <strong>{{ food.cookTime }}</strong> minutes
+            </span>
+        </div>
+
+        <div class="price">
+            <span>{{ food.price | currency }}</span>
+        </div>
+
+        <button>Add To Cart</button>
+    </div>
+</div>
