@@ -14,17 +14,17 @@ export class FoodService {
   }
   getAllTags(): Tag[] {
     return [
-      { name: 'All', count: 22 },
-      { name: 'Spicy', count: 4 },
+      { name: 'All', count: 21 },
+      { name: 'Spicy', count: 3 },
       { name: 'Dessert', count: 2 },
-      { name: 'Dinner', count: 2 },
-      { name: 'Lunch', count: 3 },
-      { name: 'Breakfast', count: 3 },
+      { name: 'Dinner', count: 8 },
+      { name: 'Lunch', count: 9 },
+      { name: 'Breakfast', count: 8 },
       { name: 'Healthy', count: 2 },
       { name: 'Grilled', count: 1 },
-      { name: 'Snack', count: 1 },
-      { name: 'Soup', count: 1 },
-      { name: 'Special', count: 1 },
+      { name: 'Snack', count: 5 },
+      { name: 'Soup', count: 2 },
+      { name: 'Special', count: 2 },
     ];
   }
   getAllFoodsByTag(tag: string): Food[] {
