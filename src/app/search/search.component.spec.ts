@@ -9,9 +9,8 @@ describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
   let router: Router;
-  let activatedRoute: ActivatedRoute;
 
-  const paramMap = new BehaviorSubject<Params>({ searchTerm: 'testSearchTerm' });
+  const paramMap = new BehaviorSubject<Params>({ searchTerm: 'nasi' });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -28,7 +27,6 @@ describe('SearchComponent', () => {
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router);
-    activatedRoute = TestBed.inject(ActivatedRoute);
   });
 
   it('should create', () => {
@@ -36,6 +34,7 @@ describe('SearchComponent', () => {
   });
 
   it('should not navigate when search term is empty', () => {
+    // AAA method implementation
     spyOn(router, 'navigateByUrl');
     component.search();
     expect(router.navigateByUrl).not.toHaveBeenCalled();
