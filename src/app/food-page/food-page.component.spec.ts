@@ -12,7 +12,7 @@ describe('FoodPageComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-        declarations: [FoodPageComponent, NotFoundComponent, TagsComponent],
+        declarations: [FoodPageComponent, NotFoundComponent, TagsComponent,],
         imports: [RouterTestingModule],
         }).compileComponents();
         fixture = TestBed.createComponent(FoodPageComponent);
