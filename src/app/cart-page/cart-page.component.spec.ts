@@ -4,6 +4,8 @@ import { CartService } from '../services/cart/cart.service';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/CartItem';
 import { of } from 'rxjs';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { Component } from '@angular/core';
 
 describe('CartPageComponent', () => {
   let component: CartPageComponent;
@@ -47,7 +49,7 @@ describe('CartPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CartPageComponent],
+      declarations: [CartPageComponent, NotFoundComponent],
       providers: [
         {
           provide: CartService,
@@ -104,3 +106,9 @@ describe('CartPageComponent', () => {
     expect(emptyCartMessage.textContent).toContain('Cart Page Is Empty!');
   });
 });
+
+@Component({
+  selector: 'app-not-found', // Corrected selector here
+  template: ''
+})
+export class MockNotFoundComponent {}
